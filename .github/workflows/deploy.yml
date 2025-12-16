@@ -1,4 +1,4 @@
-name: Auto Deploy to aaPanel
+name: Build and Deploy to aaPanel
 
 on:
   push:
@@ -6,43 +6,29 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      - name: Deploy
-        run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-          set -e
+      - name: Install dependencies
+        run: npm ci
 
-          APP_PATH=${{ secrets.APP_PATH }}
+      - name: Build project
+        run: npm run build
 
-          mkdir -p $APP_PATH
-          cd $APP_PATH
-
-          if [ ! -d ".git" ]; then
-            git clone https://github.com/javedmarinesoft-lang/web1.git .
-          else
-            git pull origin main
-          fi
-
-          if [ -f package.json ]; then
-            npm install
-            npm run build
-          fi
-
-          if [ -f composer.json ]; then
-            composer install --no-dev --optimize-autoloader
-          fi
-
-          EOF
+      - name: Deploy build to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.AA_HOST }}
+          username: ${{ secrets.AA_USER }}
+          key: ${{ secrets.AA_SSH_KEY }}
+          source: "dist/*"
+          target: ${{ secrets.AA_PATH }}
