@@ -1,48 +1,18 @@
-name: Auto Deploy to aaPanel
+- name: Deploy Next.js App
+  run: |
+    ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+    set -e
+    cd ${{ secrets.APP_PATH }}
 
-on:
-  push:
-    branches:
-      - main
+    if [ ! -d ".git" ]; then
+      git clone https://github.com/javedmarinesoft-lang/web1.git .
+    else
+      git pull origin main
+    fi
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    npm install
+    npm run build
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Deploy
-        run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-          set -e
-
-          APP_PATH=${{ secrets.APP_PATH }}
-
-          mkdir -p $APP_PATH
-          cd $APP_PATH
-
-          if [ ! -d ".git" ]; then
-            git clone https://github.com/javedmarinesoft-lang/web1.git .
-          else
-            git pull origin main
-          fi
-
-          if [ -f package.json ]; then
-            npm install
-            npm run build
-          fi
-
-          if [ -f composer.json ]; then
-            composer install --no-dev --optimize-autoloader
-          fi
-
-          EOF
+    pm2 restart nextjs-app || pm2 start npm --name "nextjs-app" -- start
+    pm2 save
+    EOF
