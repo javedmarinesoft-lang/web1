@@ -1,52 +1,79 @@
-# Java Project
+# System Architecture Design
 
-## Quick Start
-
-1. **Clone the repository:**
-```bash
-git clone https://github.com/yourusername/yourproject.git
+## Frontend Layer
+```javascript
+// React component pattern
+const Button = ({ variant = 'primary', children }) => (
+  <button className={`btn btn-${variant}`}>
+    {children}
+  </button>
+);
 ```
 
-2. **Compile and run:**
+## Backend Layer
 ```java
-// Main.java
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Starting application...");
-        new App().run();
+// Spring Boot service pattern
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository repository;
+    
+    public User getUserById(Long id) {
+        return repository.findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
     }
 }
 ```
 
-## Usage Example
+## Database Layer
+```sql
+-- PostgreSQL schema design
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
-```java
-import com.example.YourClass;
+## API Design
+```typescript
+// TypeScript interface for API contracts
+interface APIResponse<T> {
+    data: T;
+    status: 'success' | 'error';
+    message?: string;
+    timestamp: Date;
+}
 
-public class ExampleUsage {
-    public static void main(String[] args) {
-        YourClass instance = new YourClass();
-        String result = instance.doSomething("input");
-        System.out.println("Result: " + result);
-    }
+interface User {
+    id: number;
+    name: string;
+    email: string;
 }
 ```
 
-## API Reference
+## Configuration
+```yaml
+# application.yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: admin
+    password: secret
+```
 
-```java
-/**
- * Example class demonstrating documentation
- */
-public class Example {
-    /**
-     * Adds two numbers
-     * @param a first number
-     * @param b second number
-     * @return sum of a and b
-     */
-    public int add(int a, int b) {
-        return a + b;
-    }
-}
+## Infrastructure
+```dockerfile
+# Dockerfile multi-stage build
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
 ```
