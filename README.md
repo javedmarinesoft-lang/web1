@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Your Project Name
 
-## Getting Started
+**Links:** [Homepage](link) | [Chat](link) | [Hugging Face](link) | [Discord](link) | [WeChat](link) | [Twitter](link)  
+**Code License:** [License Name] | **Model License:** [License Name]  
+**Paper:** [Link to Paper]👁️  
 
-First, run the development server:
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Model Summary](#model-summary)
+3. [Model Downloads](#model-downloads)
+4. [Evaluation Results](#evaluation-results)
+5. [Chat Website & API Platform](#chat-website--api-platform)
+6. [How to Run Locally](#how-to-run-locally)
+7. [License](#license)
+8. [Citation](#citation)
+9. [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 1. Introduction
+[Write a comprehensive introduction about your model here. Include key features, architecture highlights, training details, and main achievements.]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. Model Summary
+### Architecture
+- **Key Feature 1:** Description
+- **Key Feature 2:** Description
+- **Key Feature 3:** Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Pre-Training
+- Training data size and composition
+- Training efficiency details
+- Hardware requirements and costs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Post-Training
+- Fine-tuning methodology
+- Special techniques used (e.g., knowledge distillation, RLHF)
+- Output style control
 
-## Learn More
+## 3. Model Downloads
+| Model | #Total Params | #Activated Params | Context Length | Download |
+|-------|---------------|-------------------|----------------|----------|
+| Model-Name-Base | XB | YB | ZK | [🤗 Hugging Face](link) |
+| Model-Name-Chat | XB | YB | ZK | [🤗 Hugging Face](link) |
 
-To learn more about Next.js, take a look at the following resources:
+**Note:** [Any important notes about the model weights, special modules, or requirements]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4. Evaluation Results
+### Base Model
+**Standard Benchmarks**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Benchmark (Metric) | # Shots | Competitor 1 | Competitor 2 | Your Model |
+|-------------------|---------|--------------|--------------|------------|
+| **Architecture** | - | Type | Type | Your Type |
+| **# Activated Params** | - | Size | Size | Your Size |
+| **# Total Params** | - | Size | Size | Your Size |
+| **English** | | | | |
+| MMLU (Acc.) | 5-shot | Score | Score | **Your Score** |
+| [Other benchmarks] | | | | |
 
-## Deploy on Vercel
+### Chat Model
+**Standard Benchmarks**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Benchmark (Metric) | Competitor 1 | Competitor 2 | Your Model |
+|-------------------|--------------|--------------|------------|
+| **Architecture** | Type | Type | Your Type |
+| **# Activated Params** | Size | Size | Your Size |
+| MMLU (EM) | Score | Score | **Your Score** |
+| [Other benchmarks] | | | |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Open Ended Generation Evaluation**
+
+| Model | Arena-Hard | AlpacaEval 2.0 |
+|-------|------------|----------------|
+| Competitor 1 | Score | Score |
+| Your Model | **Score** | **Score** |
+
+## 5. Chat Website & API Platform
+You can interact with our model through:
+- **Official Website:** [website link]
+- **API Platform:** [API platform link] (OpenAI-Compatible API available)
+
+## 6. How to Run Locally
+Our model can be deployed locally using various frameworks:
+
+### 6.1 Inference with [Framework 1] (recommended)
+[Detailed instructions with code examples]
+
+**System Requirements:**
+- OS: [Requirements]
+- Python: [Version]
+- Dependencies:
+  ```bash
+  package1==version
+  package2==version
