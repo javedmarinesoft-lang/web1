@@ -1,92 +1,46 @@
-# Your Project Name
+<p align="center">
+  <img src="assets/logo.png" alt="DeepSeek Logo" width="200">
+</p>
 
-**Links:** [Homepage](link) | [Chat](link) | [Hugging Face](link) | [Discord](link) | [WeChat](link) | [Twitter](link)  
-**Code License:** [License Name] | **Model License:** [License Name]  
-**Paper:** [Link to Paper]👁️  
+<h1 align="center">DeepSeek-V3</h1>
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Model Summary](#model-summary)
-3. [Model Downloads](#model-downloads)
-4. [Evaluation Results](#evaluation-results)
-5. [Chat Website & API Platform](#chat-website--api-platform)
-6. [How to Run Locally](#how-to-run-locally)
-7. [License](#license)
-8. [Citation](#citation)
-9. [Contact](#contact)
+<p align="center">
+  <strong>A Powerful Mixture-of-Experts Language Model</strong>
+</p>
 
-## 1. Introduction
-[Write a comprehensive introduction about your model here. Include key features, architecture highlights, training details, and main achievements.]
+<p align="center">
+  <a href="https://www.deepseek.com">🌐 Homepage</a> •
+  <a href="https://chat.deepseek.com">💬 Chat</a> •
+  <a href="https://huggingface.co/deepseek-ai">🤗 Hugging Face</a> •
+  <a href="https://discord.gg/deepseek">💬 Discord</a> •
+  <a href="wechat-link">💬 WeChat</a> •
+  <a href="https://twitter.com/deepseekai">🐦 Twitter</a>
+</p>
 
-## 2. Model Summary
-### Architecture
-- **Key Feature 1:** Description
-- **Key Feature 2:** Description
-- **Key Feature 3:** Description
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/Code%20License-MIT-blue.svg" alt="Code License: MIT"></a>
+  <a href="MODEL_LICENSE.md"><img src="https://img.shields.io/badge/Model%20License-Model%20Agreement-green.svg" alt="Model License: Model Agreement"></a>
+  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/📄 Paper%20Link-🔗-orange.svg" alt="Paper"></a>
+</p>
 
-### Pre-Training
-- Training data size and composition
-- Training efficiency details
-- Hardware requirements and costs
+<p align="center">
+  <img src="https://img.shields.io/badge/Parameters-671B%20Total%20%7C%2037B%20Activated-blueviolet" alt="Parameters">
+  <img src="https://img.shields.io/badge/Context%20Length-128K-brightgreen" alt="Context Length">
+  <img src="https://img.shields.io/badge/Architecture-MoE%20with%20MLA-ff69b4" alt="Architecture">
+</p>
 
-### Post-Training
-- Fine-tuning methodology
-- Special techniques used (e.g., knowledge distillation, RLHF)
-- Output style control
+---
 
-## 3. Model Downloads
-| Model | #Total Params | #Activated Params | Context Length | Download |
-|-------|---------------|-------------------|----------------|----------|
-| Model-Name-Base | XB | YB | ZK | [🤗 Hugging Face](link) |
-| Model-Name-Chat | XB | YB | ZK | [🤗 Hugging Face](link) |
+## 📑 Table of Contents
+- [✨ Introduction](#introduction)
+- [🏗️ Model Summary](#model-summary)
+- [📥 Model Downloads](#model-downloads)
+- [📊 Evaluation Results](#evaluation-results)
+- [🌐 Chat Website & API Platform](#chat-website--api-platform)
+- [💻 How to Run Locally](#how-to-run-locally)
+- [📄 License](#license)
+- [📚 Citation](#citation)
+- [📞 Contact](#contact)
 
-**Note:** [Any important notes about the model weights, special modules, or requirements]
-
-## 4. Evaluation Results
-### Base Model
-**Standard Benchmarks**
-
-| Benchmark (Metric) | # Shots | Competitor 1 | Competitor 2 | Your Model |
-|-------------------|---------|--------------|--------------|------------|
-| **Architecture** | - | Type | Type | Your Type |
-| **# Activated Params** | - | Size | Size | Your Size |
-| **# Total Params** | - | Size | Size | Your Size |
-| **English** | | | | |
-| MMLU (Acc.) | 5-shot | Score | Score | **Your Score** |
-| [Other benchmarks] | | | | |
-
-### Chat Model
-**Standard Benchmarks**
-
-| Benchmark (Metric) | Competitor 1 | Competitor 2 | Your Model |
-|-------------------|--------------|--------------|------------|
-| **Architecture** | Type | Type | Your Type |
-| **# Activated Params** | Size | Size | Your Size |
-| MMLU (EM) | Score | Score | **Your Score** |
-| [Other benchmarks] | | | |
-
-**Open Ended Generation Evaluation**
-
-| Model | Arena-Hard | AlpacaEval 2.0 |
-|-------|------------|----------------|
-| Competitor 1 | Score | Score |
-| Your Model | **Score** | **Score** |
-
-## 5. Chat Website & API Platform
-You can interact with our model through:
-- **Official Website:** [website link]
-- **API Platform:** [API platform link] (OpenAI-Compatible API available)
-
-## 6. How to Run Locally
-Our model can be deployed locally using various frameworks:
-
-### 6.1 Inference with [Framework 1] (recommended)
-[Detailed instructions with code examples]
-
-**System Requirements:**
-- OS: [Requirements]
-- Python: [Version]
-- Dependencies:
-  ```bash
-  package1==version
-  package2==version
+## ✨ Introduction
+[Introduction content...]
